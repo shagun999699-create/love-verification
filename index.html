@@ -1,25 +1,22 @@
-
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rukshant ❤️ Shagun</title>
 
 <style>
-
 body{
 margin:0;
-padding:0;
 font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#ff5f9e,#ff9ecf);
-height:100vh;
+background:linear-gradient(135deg,#ff4f8b,#ff9dc7);
 display:flex;
 justify-content:center;
 align-items:center;
-text-align:center;
+height:100vh;
 overflow:hidden;
+text-align:center;
 }
 
 .box{
@@ -27,25 +24,25 @@ background:white;
 padding:30px;
 border-radius:20px;
 width:90%;
-max-width:600px;
+max-width:650px;
 box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
-h1{
-color:#ff2b77;
+h1,h2{
+color:#ff2a72;
 }
 
 button{
 padding:15px 25px;
-font-size:18px;
 border:none;
-border-radius:50px;
+border-radius:40px;
+font-size:18px;
 cursor:pointer;
 margin:10px;
 }
 
 #yes{
-background:#ff2b77;
+background:#ff2a72;
 color:white;
 }
 
@@ -53,89 +50,143 @@ color:white;
 background:#ddd;
 }
 
-#result{
+#question{
 display:none;
+}
+
+#certificate{
+display:none;
+}
+
+.meter{
+width:100%;
+height:30px;
+background:#eee;
+border-radius:20px;
+overflow:hidden;
+margin-top:20px;
+}
+
+.fill{
+height:100%;
+width:0%;
+background:#ff2a72;
+transition:3s;
 }
 
 .heart{
 position:fixed;
 font-size:30px;
-animation:fall 4s linear forwards;
+animation:fall linear forwards;
 }
 
 @keyframes fall{
-from{
-transform:translateY(-100px);
+from{transform:translateY(-100px);}
+to{transform:translateY(110vh);}
 }
-to{
-transform:translateY(110vh);
-}
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="box" id="main">
+<div class="box" id="countdownBox">
 
-<h1>❤️ Relationship Verification ❤️</h1>
+<h1>❤️ Relationship Verification Portal ❤️</h1>
+
+<h2 id="countdown">Loading Verification... 3</h2>
+
+</div>
+
+<div class="box" id="question">
+
+<h1>Hello Rukshant ❤️</h1>
 
 <p>
-Dear Rukshant,
+The Department of Love Affairs has detected a strong connection between:
 </p>
+
+<h2>Rukshant ❤️ Shagun</h2>
 
 <p>
-Our records show that you are extremely important to Shagun.
+Please answer carefully:
 </p>
 
-<p>
-Please answer honestly.
-</p>
-
-<h2>Do you love Shagun? ❤️</h2>
+<h2>Do you love Shagun?</h2>
 
 <button id="yes">YES ❤️</button>
 <button id="no">NO 💔</button>
 
 </div>
 
-<div class="box" id="result">
+<div class="box" id="certificate">
 
 <h1>🎉 Love Confirmed 🎉</h1>
 
-<h2>Official Certificate</h2>
+<h2>Love Meter</h2>
 
-<p>
-This certifies that
-</p>
+<div class="meter">
+<div class="fill" id="fill"></div>
+</div>
+
+<br>
+
+<h2>📜 Official Certificate</h2>
+
+<p>This certifies that</p>
 
 <h2>Rukshant ❤️</h2>
 
-<p>
-officially loves
-</p>
+<p>officially confirms his love for</p>
 
 <h2>Shagun ❤️</h2>
 
+<p>Forever & Always 💕</p>
+
 <p>
-Forever & Always 💕
+Approved by the Department of Love Affairs
 </p>
 
 </div>
 
 <script>
 
+let count=3;
+
+let timer=setInterval(()=>{
+
+count--;
+
+document.getElementById("countdown").innerHTML=
+"Loading Verification... "+count;
+
+if(count===0){
+
+clearInterval(timer);
+
+document.getElementById("countdownBox").style.display="none";
+
+document.getElementById("question").style.display="block";
+
+}
+
+},1000);
+
 document.getElementById("yes").onclick=function(){
 
-document.getElementById("main").style.display="none";
-document.getElementById("result").style.display="block";
+document.getElementById("question").style.display="none";
 
-for(let i=0;i<80;i++){
+document.getElementById("certificate").style.display="block";
+
+setTimeout(()=>{
+document.getElementById("fill").style.width="100%";
+},300);
+
+for(let i=0;i<120;i++){
 
 let heart=document.createElement("div");
 
 heart.className="heart";
+
 heart.innerHTML="❤️";
 
 heart.style.left=Math.random()*100+"vw";
@@ -156,7 +207,7 @@ heart.remove();
 document.getElementById("no").onclick=function(){
 
 alert(
-"❌ Request Rejected!\\n\\nDear Rukshant,\\n\\nThe NO option is unavailable because Shagun has already booked you for life. ❤️\\n\\nStatus: Permanently Reserved 💍💕"
+"❌ Request Denied!\n\nDear Rukshant,\n\nThe NO option is currently unavailable because Shagun has already reserved your heart for a lifetime. ❤️💍\n\nStatus: Permanently Booked."
 );
 
 };
@@ -166,3 +217,4 @@ alert(
 </body>
 </html>
 ```
+
