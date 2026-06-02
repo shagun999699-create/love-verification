@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Relationship Verification ❤️</title>
+<title>Rukshant's Love Verification ❤️</title>
 
 <style>
 *{
@@ -18,18 +19,18 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
     background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffd3e1);
+    overflow:hidden;
 }
 
 .container{
     width:90%;
-    max-width:600px;
+    max-width:650px;
     background:white;
     padding:35px;
     border-radius:25px;
     text-align:center;
-    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
 }
 
 h1{
@@ -39,8 +40,8 @@ h1{
 
 p{
     font-size:18px;
+    margin:10px 0;
     color:#444;
-    margin:12px 0;
 }
 
 .buttons{
@@ -52,7 +53,7 @@ p{
 button{
     padding:14px 24px;
     border:none;
-    border-radius:40px;
+    border-radius:50px;
     font-size:18px;
     cursor:pointer;
 }
@@ -70,7 +71,7 @@ button{
     background:#d9d9d9;
     position:absolute;
     left:60%;
-    top:60px;
+    top:70px;
 }
 
 #result{
@@ -87,7 +88,7 @@ button{
 
 .heart{
     position:fixed;
-    font-size:25px;
+    font-size:28px;
     animation:fall linear forwards;
 }
 
@@ -106,17 +107,19 @@ button{
 
 <div class="container" id="main">
 
-<h1>❤️ Relationship Verification System ❤️</h1>
+<h1>❤️ Relationship Verification Portal ❤️</h1>
 
 <p>
-Official records indicate that
-<b>Rukshant</b>
-is in a relationship with
-<b>Shagun</b>.
+Important notice for <b>Rukshant</b>.
 </p>
 
 <p>
-Please verify your feelings to continue.
+Our records indicate that you are in a relationship with
+<b>Shagun ❤️</b>.
+</p>
+
+<p>
+Please verify your feelings below.
 </p>
 
 <div class="buttons">
@@ -144,7 +147,7 @@ Please verify your feelings to continue.
 
 <h2>Shagun ❤️</h2>
 
-<p>Forever and Always</p>
+<p>Forever & Always</p>
 
 <br>
 
@@ -157,10 +160,11 @@ Please verify your feelings to continue.
 <script>
 
 const noBtn = document.getElementById("noBtn");
+let noCount = 0;
 
 function moveButton(){
 
-const maxX = window.innerWidth - 150;
+const maxX = window.innerWidth - 180;
 const maxY = window.innerHeight - 100;
 
 const x = Math.random() * maxX;
@@ -172,22 +176,44 @@ noBtn.style.top = y + "px";
 }
 
 noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("click", moveButton);
 
-document.getElementById("yesBtn").addEventListener("click", ()=>{
+noBtn.addEventListener("click", () => {
+
+noCount++;
+
+if(noCount === 1){
+alert("😏 Are you sure, Rukshant?");
+}
+else if(noCount === 2){
+alert("🤔 Think carefully...");
+}
+else if(noCount === 3){
+alert("🥺 Shagun might get sad...");
+}
+else if(noCount === 4){
+alert("🚨 Warning: Love verification incomplete!");
+}
+else if(noCount === 5){
+alert("😂 Nice try. The NO option has resigned.");
+noBtn.innerHTML = "❤️ I Love Shagun";
+}
+});
+
+document.getElementById("yesBtn").addEventListener("click", () => {
 
 document.getElementById("main").style.display="none";
 document.getElementById("result").style.display="block";
 
-for(let i=0;i<80;i++){
+for(let i=0;i<100;i++){
 
 let heart = document.createElement("div");
 
-heart.className="heart";
-heart.innerHTML="❤️";
+heart.className = "heart";
+heart.innerHTML = "❤️";
 
-heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(Math.random()*3+2)+"s";
+heart.style.left = Math.random()*100 + "vw";
+heart.style.animationDuration =
+(Math.random()*3+2)+"s";
 
 document.body.appendChild(heart);
 
@@ -202,3 +228,5 @@ heart.remove();
 
 </body>
 </html>
+```
+
